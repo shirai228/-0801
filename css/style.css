@@ -1,0 +1,269 @@
+:root {
+    --neon-pink: #ff00ff;
+    --neon-cyan: #00ffff;
+    --neon-green: #00ff9f;
+}
+
+/* ====================== ОСНОВНЫЕ СТИЛИ ====================== */
+body {
+    font-family: 'Courier New', monospace;
+    color: #e0e0e0;
+    background: url('../assets/background.jpg') fixed center/cover;
+    min-height: 100vh;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+    background: rgba(10, 10, 10, 0.96) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--neon-cyan);
+}
+
+.logo {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: var(--neon-pink);
+    text-shadow: 0 0 12px var(--neon-pink);
+    letter-spacing: 3px;
+}
+
+/* ====================== КНОПКИ ====================== */
+.btn-neon {
+    border: 3px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    background: rgba(0, 255, 255, 0.1);     /* Полупрозрачный фон */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 40px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.btn-neon:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 40px var(--neon-cyan);
+    transform: translateY(-5px);
+}
+
+/* ====================== КАРТОЧКИ ====================== */
+.card {
+    background: rgba(20, 20, 35, 0.93) !important;
+    border: 1px solid var(--neon-cyan) !important;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5) !important;
+}
+
+/* ====================== HERO ====================== */
+.hero {
+    height: 100vh;
+    background: url('../assets/hero.jpg') center/cover no-repeat !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+
+/* ====================== ГАЛЕРЕЯ ====================== */
+.photo-full {
+    width: 100%;
+    max-width: 1100px;
+    height: 520px;
+    object-fit: cover;
+    border: 2px solid var(--neon-cyan);
+    margin: 3rem auto;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.photo-small {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border: 2px solid var(--neon-pink);
+    border-radius: 8px;
+    transition: all 0.4s;
+}
+
+.photo-small:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.split-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* ====================== FOOTER ====================== */
+footer {
+    background: rgba(5, 5, 8, 0.98);
+    border-top: 3px solid var(--neon-pink);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-col h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    color: #ccc;
+}
+
+.social-links a:hover {
+    color: var(--neon-green);
+    transform: translateY(-3px);
+}
+
+/* ====================== FAQ АККОРДЕОН ====================== */
+.faq-item {
+    margin-bottom: 14px;
+    background: rgba(20, 20, 35, 0.75);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+.faq-question {
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: var(--neon-green);
+}
+
+.faq-question:hover {
+    background: rgba(30, 30, 55, 0.9);
+}
+
+.faq-answer {
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ddd;
+}
+
+.faq-answer.show {
+    padding-bottom: 22px;
+    max-height: 300px;
+}
+
+.faq-question i {
+    transition: transform 0.4s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active {
+    box-shadow: 0 0 20px rgba(0, 255, 150, 0.3);
+}
+
+/* ====================== АДАПТИВНОСТЬ ====================== */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+    
+    .photo-full {
+        height: 380px;
+    }
+}
+
+.glitch {
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; }
+    20% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
+    40% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; }
+}
+
+.logo.glitch {
+    position: relative;
+    animation: glitch 2s infinite linear alternate;
+    display: inline-block;
+    color: var(--neon-pink) !important;
+}
+
+@keyframes glitch {
+    0%   { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); }
+    20%  { text-shadow: -3px 0 var(--neon-pink), 3px 0 var(--neon-cyan); }
+    40%  { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); }
+}
+
+/* ====================== АНИМАЦИЯ ССЫЛОК В NAVBAR ====================== */
+.navbar-nav .nav-link {
+    color: #fff !important;
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--neon-cyan) !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background: linear-gradient(to right, var(--neon-pink), var(--neon-cyan));
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+/* Glitch для логотипа */
+.logo.glitch {
+    position: relative;
+    animation: glitch 2s infinite linear alternate;
+    display: inline-block;
+}
+
+@keyframes glitch {
+    0%   { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); }
+    20%  { text-shadow: -3px 0 var(--neon-pink), 3px 0 var(--neon-cyan); }
+    40%  { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); }
+    60%  { text-shadow: -4px 0 var(--neon-pink), 4px 0 var(--neon-cyan); }
+    80%  { text-shadow: 4px 0 var(--neon-pink), -4px 0 var(--neon-cyan); }
+    100% { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); }
+}
